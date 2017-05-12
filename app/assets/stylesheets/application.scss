@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require jquery-ui
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ *= require bootstrap-select
+ *= require material_icons
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "app.scss";
+@import "welcome.scss";
+@import "signin_signup.scss";
+@import "edit_user.scss";
+@import "show_user.scss";
+@import "pendings.scss";
+@import "jquery-ui";
+@import "bootstrap-timepicker";
+@import "chat";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  // background: #DEDCDE;
+  background: #3b6b74;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  height: auto;
+}
+
+.page-content {
+  width: calc(100% - 230px);
+  position: relative;
+  left: 230px;
+  height: auto;
+  padding-bottom: 10px;
+}

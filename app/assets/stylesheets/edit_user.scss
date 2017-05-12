@@ -1,0 +1,188 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#f-logo img {
+  margin-left: 15px;
+  margin-top: 0;
+  height: 80px;
+  padding: 0;
+}
+
+#editbox {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height:  140%;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.input {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+    width: 65%;
+    height: 50px;
+    display: block;
+    // margin: 0 auto 30px;
+    padding: 0 15px;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+}
+.input:focus {
+    outline: none;
+    border-bottom-color: #01b6d1 !important;
+}
+.input:hover {
+    border-bottom-color: #dcdcdc;
+}
+.input:invalid {
+    box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.submitButton {
+  // margin-top: 5px;
+  position: relative;
+  width: 85%;
+  height: 50px;
+  display: block;
+  margin: 40px auto 30px;
+  color: white;
+  background-color: #01b6d1;
+  border: none;
+  -webkit-box-shadow: 0 5px 0 #258f9f;
+  -moz-box-shadow: 0 5px 0 #258f9f;
+  box-shadow: 0 5px 0 #258f9f;
+}
+
+.submitButton:hover {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #258f9f;
+  -moz-box-shadow: 0 3px 0 #258f9f;
+  box-shadow: 0 3px 0 #258f9f;
+}
+
+.submitButton:active {
+  top: 5px;
+  box-shadow: none;
+}
+
+.submitButton:focus {
+  outline: none;
+}
+
+#username {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+
+#f-logo img:hover {
+  -webkit-box-shadow: 0 3px 0 lightgrey;
+  -moz-box-shadow: 0 3px 0 lightgrey;
+  box-shadow: 0 3px 0 lightgrey;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#edit_profile {
+  font-size: 45px;
+  color: white;
+  margin-bottom: 25px;
+  text-align: center;
+  // color: #757575;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.9;
+}
+
+#user_avatar
+{
+  margin-top: 30px;
+  margin-left: 40%;
+  margin-right: auto;
+}
+
+#avatar-checkbox {
+  margin-top: 20px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.edit_user_bg {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+    background: linear-gradient(-45deg, #0190A6, #12474F)
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 0;}
+  .sidenav a {font-size: 18px;}
+}

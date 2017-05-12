@@ -1,0 +1,96 @@
+<div id="top"></div>
+
+<header>
+  <a name="back-to-top" id="back-to-top"></a>
+  <nav class="navbar navbar-default">
+    <%= link_to image_tag("fitbuds-clear_bg-new-grey.png"), root_path , id: "logo"%>
+    <ul class="nav navbar-nav navbar-right" id="margin-right">
+      <li><a href="#back-to" id="back-to-nav">Where To Start</a></li>
+      <li><a href="#about-us" id="about-us-link">About Us</a></li>
+      <li><%= link_to "Log In with Facebook", "/auth/facebook" %></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="jumbotron" id="index-bg">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 id="middle-text"></h1>
+        <p id="short-intro" style="text-align:center;">
+          Fitbuds is a web-based app that provides a solution for people
+          who wants to find a community of friends to get fit with by doing activities together.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron" id="howto-signinup-bg">
+  <div class="container-fluid">
+    <a name="back-to" id="back-to"></a>
+    <div class="how-to">
+      <h1 id="how-to-use">Where to Start</h1>
+      <div id="signup-mock">
+        <%= image_tag("signup_page.png")%>
+      </div>
+      <h2 id="blah">Simply by signing in or up</h2>
+      <div class="signin-up-btn" style="text-align: center;">
+        <%= link_to "Sign In", sign_in_path, class: "button", id: "sign-in-btn"%>
+        <%= link_to "Sign Up", new_user_path, class: "button", id: "sign-up-btn"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron" id="howto-dashboard">
+  <div class="container-fluid">
+    <div class="col-md-5" id="mockup-mac">
+      <p id="mockup-mac-dashboard" style="float:left; height:30px;">
+        Create Match and view Upcoming Events in Dashboard.
+      </p>
+    </div>
+    <div id="dashboard-mock" style="float:right">
+      <h2 id="dashboard-text">Dashboard</h2>
+      <%= image_tag("dashboard_page.png")%>
+    </div>
+    <div id="beach-bg">
+    </div>
+  </div>
+</div>
+
+<div class="jumbotron" id="howto-matches">
+  <div class="container-fluid">
+    <div id="matches-mock" style="float:left">
+      <h2 id="matches-text">Matches Chatbox</h2>
+      <%= image_tag("matches_page.png")%>
+    </div>
+    <div class="col-md-5" id="mockup-matches">
+      <p id="mockup-mac-matches" style="float:right">
+        Chat with matching Fitbuds and set a place, time and date of where your activity is going to be.
+      </p>
+    </div>
+  </div>
+  <a href="#back-to" id="back-to-link" type="button" style="float:right;">Back to Sign Up</a>
+</div>
+
+
+<div class="mock-text" >
+  <div class="row">
+    <h2 id="bout-us">About Us</h2>
+    <a name="about-us" id="about-us"></a>
+      <p class="bout-us-p" style="text-align:center;">
+        Fitbuds is a small community driven company that aims to bring people together from their hectic lives
+        and make their fitness lifestyle, a healthy and easy one too.<br>
+        We at Fitbuds, believes that all people deserves time to get fit, regardless of their gender, age or physique.<br>
+        Our app provide solutions for people who wants to get fit by doing sports or activities but have no friends with similar interests to do so
+        or when they are trying to get into a new sports but don't know where to begin.<br>
+        Fitbuds allows users to sign up, put themselves up for matching using our very own intergrated advance algorithm,
+        users will be matched according to their similar interests and the details they provide.<br>
+
+        With Fitbuds, people can now make their fitness lifestyle, hassle-free.
+      </p>
+      <a href="#back-to-top" id="back-to-top-link" type="button">Back to Top</a>
+  </div>
+</div>

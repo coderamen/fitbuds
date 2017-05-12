@@ -1,0 +1,41 @@
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="sidebar-logo">
+    <%= image_tag("fitbuds-clear_bg-new-grey.png")%>
+  </div>
+  <%= link_to "Sign In", sign_in_path %>
+  <%= link_to "Back to Main", root_path %>
+</div>
+
+<div class="jumbotron signup_bg">
+  <div class="container-fluid" >
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="f-logo"><%= image_tag("f-clear_bg.png") %></span>
+    <div id="main">
+      <h2 id="signup-text">Signup now and find your Fitbuds</h2>
+      <div id="signup-box">
+        <%= link_to image_tag("fitbuds-clear_bg-new-grey.png"), root_path%>
+        <%= form_for @user, id: "signup", url: users_path do |f| %>
+          <%= f.email_field :email, placeholder: "Email", type: "email", class: "input pass" %>
+          <%= f.password_field :password, placeholder: "Password", type: "password", class: "input pass" %>
+          <%= f.submit "Sign Up", class: "inputButton" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    // document.getElementById("main").fadeOut();
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    // document.getElementById("main").fadeIn();
+}
+</script>

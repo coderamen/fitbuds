@@ -1,0 +1,69 @@
+<%= render partial: "layouts/dbsidebar" %>
+<div class="body-match"></div>
+<div class="dashbox-match">
+  <div class="container">
+    <div class="row">
+      <% @matches.each do |match| %>
+        <% if match.user1 == current_user %>
+          <% other_user = match.user2 %>
+          <% pending = match.user1_pending %>
+        <% else %>
+          <% other_user = match.user1 %>
+          <% pending = match.user2_pending %>
+        <% end %>
+        <%= link_to user_match_path(current_user, match) do %>
+          <div class="col-sm-3" style="padding-left: 5px;">
+            <div class="well" style="height: 350px;">
+              <div class="profile-img" style="height: 130px;">
+                <% if other_user.avatar? %>
+                  <%= image_tag other_user.avatar.url %>
+                <% else %>
+                  <%= image_tag "default_profile.jpg", width: "100%", height: "auto"%>
+                  <span class="sr-only"></span>
+                <% end %>
+              </div>
+              <div style="text-align: center; margin-top: 10px;margin-bottom: 5px; font-weight: 700; font-size: 15px; text-transform: capitalize"><%= other_user.name %></div>
+              <div style="text-align: center; margin-bottom: 10px; color: #fff; background: #258f9f; width: 100px; border-radius: 10px; margin-left: 85px;"><%= pending.activity.name %> </div>
+              <div class="item-match" style="margin-bottom: 15px; margin-left: auto; margin-right: auto">
+                <table class="confirm-status-indi">
+                  <tr>
+                    <td class="confirm-indi">
+                      <p>
+                        <% if match.confirmed_activity && match.confirmed_activity.user1_confirm && match.confirmed_activity.user2_confirm %> 
+                          <i class="material-icons md-18" style="vertical-align:middle; font-size: 15px; line-height: 13px; padding-right:2px; color: #A9CF54;">fiber_manual_record</i>
+                        <% else %>
+                          <i class="material-icons md-18" style="vertical-align:middle; font-size: 15px; line-height: 13px; padding-right:2px; color: #ccc;">fiber_manual_record</i>
+                        <% end %>
+                        Confirm
+                      </p>
+                    </td>
+                    <td class="unconfirm-indi">
+                      <p>
+                        <% if !match.confirmed_activity || !match.confirmed_activity.user1_confirm || !match.confirmed_activity.user2_confirm %> 
+                          <i class="material-icons md-18" style="vertical-align:middle; font-size: 15px; line-height: 13px; padding-right:2px; color: #f1433f;">fiber_manual_record</i>
+                        <% else %>
+                          <i class="material-icons md-18" style="vertical-align:middle; font-size: 15px; line-height: 13px; padding-right:2px; color: #ccc;">fiber_manual_record</i>
+                        <% end %>
+                        Waiting
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <table class="index-matches">
+               <tr>
+                 <td class="match-attr">City</td>
+                 <td class="match-details"><%= pending.city %></td>
+               </tr>
+               <tr>
+                 <td class="match-attr">Date</td>
+                 <td class="match-details"><%= pending.datetime.localtime.strftime("%d %b %Y") %></td>
+               </tr>
+              </table>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<div>

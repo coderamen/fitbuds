@@ -1,0 +1,45 @@
+<div class="jumbotron edit_user_bg">
+  <div class="container-fluid" >
+    <span style="font-size:30px;cursor:pointer" id="f-logo"><%= link_to image_tag("f-clear_bg.png"), root_path%></span>
+
+    <div id="main">
+      <h1 id="edit_profile">Edit Profile</h1>
+
+      <div class="container" >
+        <div id="editbox"  >
+          <%= form_for @user, id: "edit-user", url: user_path(@user), method: :patch do |f| %>
+            <%= image_tag(@user.avatar.large_avatar.url, width: "50%", height: "auto") if @user.avatar? %>
+            <%= f.file_field :avatar %>
+            <%= f.check_box :remove_avatar, id: "avatar-checkbox" %>Remove Avatar
+            <hr>
+            <%= f.text_field :name, placeholder: "Name", class: "input pass" %>
+            <%= f.email_field :email, placeholder: "Email", class: "input pass" %>
+            <%= f.password_field :password, placeholder: "Password", class: "input pass" %>
+            <%= f.password_field :retype_password, placeholder: "Re-type Password", class: "input pass" %>
+            <hr>
+            <%= f.text_field :city, placeholder: "City", class: "input pass" %>
+            <%= f.text_field :state, placeholder: "State", class: "input pass" %>
+            <%= f.text_field :country, placeholder: "Country", class: "input pass" %>
+            <hr>
+            <%= f.label "Targeted hours of exercise per week" %>
+            <%= f.number_field :weekly_activity_hours, class: "input pass" %>
+            <%= f.label "Age Range" %>
+            <%= f.select :age_range, User.age_ranges, class: "input pass" %>
+            <hr>
+            <% rating_range = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %>
+            <%= f.label "Stamina" %>
+            <%= f.select :stamina, rating_range, class: "input pass" %>
+            <%= f.label "Strength" %>
+            <%= f.select :strength, rating_range, class: "input pass" %>
+            <%= f.label "Agility" %>
+            <%= f.select :agility, rating_range, class: "input pass" %>
+            <hr>
+            <%= f.text_area :additional_health_problems, placeholder: "additional health problems", class: "input pass" %>
+            <hr>
+            <%= f.submit "Enter", class: "submitButton" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

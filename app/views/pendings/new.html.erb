@@ -1,0 +1,16 @@
+<%= form_for @pending, url: user_pendings_path(current_user) do |f| %>
+  <%= f.text_field :city, placeholder: "City" %>
+  <hr>
+  <%= f.label "Date and Time" %>
+  <%= f.date_field :date, placeholder: "Date", class: "date-field" %>
+  <%= f.text_field :time, placeholder: "Time", class: "time-field" %>
+  <hr>
+  <%= f.select :activity_id do %>
+    <% activity_array = Activity.order(:name).all.map { |activity| [activity.name, activity.id] } %>
+    <%= options_for_select([['Others', 0]]) %>
+    <%= options_for_select(activity_array) %>
+  <% end %>
+  <%= f.text_field :activity, placeholder: "If selected 'Other', please specify" %>
+  <%= f.submit %>
+
+<% end %>

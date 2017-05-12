@@ -1,0 +1,218 @@
+<%= render partial: "layouts/dbsidebar" %>
+
+<div class="page-content">
+  <div class="show-match-container">
+    
+    <% if current_user == @match.user1 %>
+      <% you = @match.user1 %>
+      <% them = @match.user2 %>
+      <% your_pending = @match.user1_pending %>
+      <% their_pending = @match.user2_pending %>
+    <% else %>
+      <% you = @match.user2 %>
+      <% them = @match.user1 %>
+      <% your_pending = @match.user2_pending %>
+      <% their_pending = @match.user1_pending %>
+    <% end %>
+
+      <br>
+      <div class="pending-info">
+        <h4>YOUR PENDING FOR THIS MATCH</h4>
+        <hr class="match-hr">
+        <table>
+          <tr>
+            <td class="pending-attr"><p>Activity:</p></td>
+            <td class="pending-details"><p><%= your_pending.activity.name %></p></td>
+            <td class="pending-attr"><p>Date: </p></td>
+            <td class="pending-details"><p><%= your_pending.datetime.localtime.strftime("%A, %d %b %Y") %></p></td>
+          </tr>
+          <tr>
+            <td class="pending-attr"><p>City:</p></td>
+            <td class="pending-details"><p><%= your_pending.city %></p></td>
+            <td class="pending-attr"><p>Time:</p></td>
+            <td class="pending-details"><p><%= your_pending.datetime.localtime.strftime("%I:%M %p") %></p></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="row match-other-row">
+        <div class="col-md-4">
+          <% if them.avatar? %>
+            <%= image_tag them.avatar.large_avatar.url %>
+          <% else %>
+            <%= image_tag "default_profile.jpg" %>
+          <% end %>
+            
+        </div>
+
+        <div class="col-md-8">
+          <div class="other-user-details">
+            <h2><%= them.name %></h2>
+            <h4>from <%= them.city %>, <%= them.state %>, <%= them.country %></h4>
+            <p><%= them.email %></p>
+            <br>
+            <table class="user-attr-table">
+              <tr>
+                <td>Stamina:</td>
+                <td class="attr-value"><%= them.stamina %></td>
+                <td>Strength:</td>
+                <td class="attr-value"><%= them.strength %></td>
+                <td>Agility:</td>
+                <td class="attr-value"><%= them.agility %></td>
+              </tr>
+            </table>
+            <br>
+            <hr class="match-hr">
+            <h4 class="other-pending-title">Their Pending details</h4>
+            <table class="other-pending-table">
+              <tr>
+                <td class="pending-attr"><p>Activity:</p></td>
+                <td class="pending-details"><p><%= their_pending.activity.name %></p></td>
+                <td class="pending-attr"><p>Date: </p></td>
+                <td class="pending-details"><p><%= their_pending.datetime.localtime.strftime("%A, %d %b %Y") %></p></td>
+              </tr>
+              <tr>
+                <td class="pending-attr"><p>City:</p></td>
+                <td class="pending-details"><p><%= their_pending.city %></p></td>
+                <td class="pending-attr"><p>Time:</p></td>
+                <td class="pending-details"><p><%= their_pending.datetime.localtime.strftime("%I:%M %p") %></p></td>
+              </tr>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    
+    <div class="row chat-form-row">
+      <div class="col-md-6 chat-col">
+        <h4>CHAT</h4>
+        <% if current_user == @match.user1 %>
+          <div class="chatbox" data-match-id="<%= @match.id %>" data-self="<%= @match.user1.id %>" data-other="<%= @match.user2.id %>">
+        <% else %>
+          <div class="chatbox" data-match-id="<%= @match.id %>" data-self="<%= @match.user2.id %>" data-other="<%= @match.user1.id %>">
+        <% end %>
+          <ol class="chat">
+            <% @match.messages.order('created_at').each do |msg| %>
+              <% if msg.user.id == current_user.id %>
+                <li class="self">
+              <% else %>
+                <li class="other">
+              <% end %>
+                  <div class="msg">
+                    <p><%= msg.content %></p>
+                  </div>
+                </li>
+            <% end %>
+          </ol>
+
+          <div class="reply-msg">
+            <%= form_for :message, url: match_messages_path(@match), remote: true do |f| %>
+              <%= f.text_field :content, placeholder: "Message", class: "reply-input" %>
+              <%= f.submit "Send" %>
+            <% end %>
+          </div>
+        </div>      
+      </div>
+
+      <div class="col-md-5 confirmed-activity-col">
+        <h4>CONFIRM THE ACTIVITY</h4>
+        <% activity = @match.confirmed_activity %>
+        <% if activity %>
+          <div class="panel">
+            <div class="panel-body">
+              <table class="confirm-details">
+                <tr>
+                  <td class="confirm-attr"><p>Activity</p></td>
+                  <td><p><%= activity.activity.name %></p></td>
+                </tr>
+                <tr>
+                  <td class="confirm-attr"><p>Location</p></td>
+                  <td><p><%= activity.location %></p></td>
+                </tr>
+                <tr>
+                  <td class="confirm-attr"><p>Date</p></td>
+                  <td><p><%= activity.datetime.localtime.strftime("%A, %d %b %Y") %></p></td>
+                </tr>
+                <tr>
+                  <td class="confirm-attr"><p>Time</p></td>
+                  <td><p><%= activity.datetime.localtime.strftime("%I:%M %p") %></p></td>
+                </tr>
+                <tr>
+                  <td class="confirm-attr"><p>Duration</p></td>
+                  <td><p><%= activity.duration_in_hours %> hour(s)</p></td>
+                </tr>
+              </table>
+          <!-- conditions for when the user has confirmed/not confirmed -->
+          <% if activity.user1_confirm && activity.user2_confirm %>
+            <div class="alert alert-success confirm-alert">
+              <p class="confirm-message">You've both confirmed this activity!</p>
+            </div>
+          <% elsif (current_user == @match.user1 && activity.user1_confirm) || (current_user == @match.user2 && activity.user2_confirm) %>
+            <div class="alert alert-info confirm-alert">
+              <p class="confirm-message">Waiting for other user to confirm!</p>
+            </div>
+          <% else %>
+              <%= button_to "or decline to recreate activity", match_confirmed_activity_path(@match, activity), method: :delete, class: "decline-link" %>
+              <p><%= button_to "Confirm", match_confirmed_activity_path(@match, activity), method: :post, class: "btn btn-primary btn-lg confirm-btn" %></p>
+          <% end %>
+            </div>
+          </div>
+
+        <% else %>
+          <%= form_for @confirmed_activity, url: match_confirmed_activities_path(@match) do |f| %>
+            <!-- for user confirmation based on the current_user -->
+            <% if current_user == @match.user1 %>
+              <%= f.hidden_field :user1_confirm, value: true %>
+            <% else %>
+              <%= f.hidden_field :user2_confirm, value: true %>
+            <% end %>
+
+            <div class="panel">
+              <div class="panel-body">
+                <table class="confirm-form">
+                  <tr>
+                    <td class="confirm-attr"><p>Activity</p></td>
+                    <td><p>
+                      <%= f.select :activity_id, {}, {}, { class: "form-activity" } do %>
+                        <% activity_array = Activity.order(:name).all.map { |activity| [activity.name, activity.id] } %>
+                        <%= options_for_select([['Others', 0]]) %>
+                        <%= options_for_select(activity_array) %>
+                      <% end %>
+                      <%= f.text_field :activity, placeholder: "If 'Other', please specify" %>
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td class="confirm-attr"><p>Location</p></td>
+                    <td><p>
+                      <%= f.text_field :location, placeholder: "Location" %>
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td class="confirm-attr"><p>Date</p></td>
+                    <td><p>
+                      <%= f.date_field :date, placeholder: "Date", class: "date-field" %>
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td class="confirm-attr"><p>Time</p></td>
+                    <td><p>
+                      <%= f.text_field :time, placeholder: "Time", class: "time-field" %>
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td class="confirm-attr"><p>Duration</p></td>
+                    <td><p>
+                      <%= f.number_field :duration_in_hours, placeholder: "Duration" %> <span style="color: #818181;">(in hours)</span>
+                    </p></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <%= f.submit "Confirm", class: "btn btn-primary btn-lg confirm-btn" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+</div>

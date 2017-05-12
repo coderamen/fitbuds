@@ -1,0 +1,85 @@
+<!-- topbar -->
+<!-- side-navigation -->
+<div class="leftbar">
+  <div class="leftbar-bg">
+    <div class="left-side-container">
+      <a href="/"><%= image_tag "fitbuds-clear_bg-new-grey.png", class: "brand", style: "width: 128px; height: 55px;" %></a>
+      <div class="user-profile-container" style="border-top: solid 1px rgba(0, 0, 0, 0.12)">
+        <div class="user-profile clearfix">
+          <div class="user-thumb">
+            <% if current_user.avatar? %>
+              <%= image_tag current_user.avatar.small_avatar.url, width: "70px", height: "70px" %>
+            <% else %>
+              <%= image_tag "default_profile.jpg", width: "70px", height: "70px" %>
+            <% end %>
+          </div>
+          <div class="user-info">
+            <ul style="padding-left: 0;margin-bottom: 0; font-weight: 300; text-align: left;  ">
+              <li style="text-transform: capitalize"><%= current_user.name %></li>
+              <li><%= current_user.email %></li>
+              <li>
+                <a href="<%= edit_user_path(current_user) %>" class="btn btn-default" style="vertical-align: middle;width: 114px; border-radius: 0; height: 30px;">
+                  <i class="material-icons md-18" style="vertical-align: middle; font-size: 14px; line-height: 14px; padding-right: 10px; height: 16px;">mode_edit</i>
+                  edit
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="user-add-info">
+        <ul style="text-transform: capitalize; margin-top: 10px;">
+          <li style="float:left; margin-left: 20px; width: 100px; margin-right: 20px;">age</li>
+          <li style="text-align: center;"><%= current_user.age_range %></li>
+          <li style="float:left; margin-left: 20px; width: 100px;margin-right: 20px;">stamina</li>
+          <li style="text-align: center;"><%= current_user.stamina %></li>
+          <li style="float:left; margin-left: 20px; width: 100px;margin-right: 20px;">strength</li>
+          <li style="text-align: center;"><%= current_user.strength %></li>
+          <li style="float:left; margin-left: 20px; width: 100px; margin-right: 20px;">agility</li>
+          <li style="text-align: center;"><%= current_user.agility %></li>
+        </ul>
+        <ul style="text-transform: capitalize; border-top: 1px solid rgba(0, 0, 0, 0.12);">
+          <li style="margin-left: 20px; width: 200px; margin-top: 10px;">
+            <i class="material-icons md-18" style="vertical-align: middle; margin-right:5px; font-size: 14px; line-height: 12px;">location_city</i>
+            City/State/Country
+          </li>
+          <li style="margin-left: 20px;">
+            <i class="material-icons md-18" style="font-size: 15px; margin-right: 5px; margin-right: 5px; line-height: 12px;">label</i>
+            <%= current_user.city %>
+          </li>
+          <li style="margin-left: 20px;">
+            <i class="material-icons md-18" style="font-size: 15px; margin-right: 5px; line-height: 12px;">label</i>
+            <%= current_user.state %>
+          </li>
+          <li style="margin-left: 20px;">
+            <i class="material-icons md-18" style="vertical-align:middle; font-size: 15px; margin-right: 5px; line-height: 12px;">label</i>
+            <%= current_user.country %>
+          </li>
+
+
+          <!-- <li style="float:left; margin-left: 18px; width: 100px; margin-right: 40px;"><i class="material-icons md-18" style="vertical-align: middle; margin-right:7px; font-size: 14px; line-height: 12px;">local_activity</i>Activity</li>
+          <li><%= current_user.weekly_activity_hours %></li>
+          <li style="float:left; margin-left: 18px; width: 200px; margin-right: 40px;"><i class="material-icons md-18" style="vertical-align: middle; margin-right:7px; font-size: 14px; line-height: 12px;">local_hospital</i>Health Issue</li>
+          <li><%= current_user.additional_health_problems %></li> -->
+
+        </ul>
+      </div>
+      <ul class="list-profile" style="display: block; margin-top: 12px;">
+        <li><%= image_tag "icon1.png", width: "13px", height: "13px", style: "margin-right: 5px;" %>
+          <%= link_to "waiting/pending", user_pendings_path(current_user), class: "list-style" %>
+        </li>
+        <li>
+          <i class="material-icons md-18" style="vertical-align: middle; margin-right: 5px; font-size: 15px;">recent_actors</i>
+          <%= link_to "matches", user_matches_path(current_user), class: "list-style" %>
+        </li>
+        <!-- <div style="height: 320px;"></div> -->
+      </ul>
+      <ul class="list-profile logout-btn">
+        <li>
+          <i class="fa fa-sign-out"></i>
+            <%= link_to "logout", sign_out_path, { method: :delete, class: "list-style" } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

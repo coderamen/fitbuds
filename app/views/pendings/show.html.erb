@@ -1,0 +1,93 @@
+<div class="page-color"></div>
+<div class="page-content">
+  <div class="show-pending-container">
+    <br><br><br>
+    <div class="panel show-pending-panel">
+      <div class="panel-body">
+        <h2>YOUR PENDING DETAILS</h2>  
+        <table class="">
+          <tr>
+            <td class="pending-attr">Activity:</td>
+            <td class="pending-details"><%= @pending.activity.name %></td>
+            <td class="pending-attr">Date:</td>
+            <td class="pending-details"><%= @pending.datetime.localtime.strftime("%A, %d %b %Y") %></td>  
+          </tr>
+          <tr>
+            <td class="pending-attr">City:</td>
+            <td class="pending-details"><%= @pending.city %></td>
+            <td class="pending-attr">Time:</td>
+            <td class="pending-details"><%= @pending.datetime.localtime.strftime("%I:%M %p") %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <div class="potential-matches">
+      <% if @pending.potential_matches != [] %>
+        <h4>AVAILABLE MATCHES</h4>
+        <div class="all-matches-panels" style="position: relative">
+          <% @pending.potential_matches.each do |potential_match| %>
+            <div class="panel potential-match-panel panel-<%= potential_match.id %>">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <% if potential_match.user.avatar? %>
+                      <%= image_tag(potential_match.user.avatar.medium_avatar.url) %>
+                    <% else %>
+                      <%= image_tag "default_profile.jpg" %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-5">
+                    <h2>
+                      <% if potential_match.user.name %>
+                        <%= potential_match.user.name %>
+                      <% else %>
+                        No Name                
+                      <% end %>
+                    </h2>
+                    <h5> from <%= potential_match.user.city %>, <%= potential_match.user.state %>, <%= potential_match.user.country %></h5>
+                    <table>
+                      <tr>
+                        <td>Available on</td>
+                      </tr>
+                      <tr>
+                        <td class="pending-details"><%= potential_match.datetime.localtime.strftime("%d %b %Y, %I:%M %p") %></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="col-md-4">
+                    <table>
+                      <tr>
+                        <td>
+                          <%= button_to "Accept", pending_match_statuses_path(potential_match), method: :post, remote: true,
+                                params: { status: "accepted",
+                                          pending_viewer_id: @pending.id,
+                                          pending_viewed_id: potential_match.id },
+                                class: "btn btn-default btn-lg accept-btn"
+                          %>
+                        </td>
+                        <td>
+                          <%= button_to "Decline", pending_match_statuses_path(potential_match), method: :post, remote: true,
+                                params: { status: "declined",
+                                          pending_viewer_id: @pending.id,
+                                          pending_viewed_id: potential_match.id },
+                                class: "btn btn-default btn-lg decline-btn"
+                          %>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="no-pending-msg">
+          <h4>No available matches. Please try again later.</h4>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

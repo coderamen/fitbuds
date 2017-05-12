@@ -1,0 +1,2 @@
+module ConfirmedActivitiesControllerHelper
+end

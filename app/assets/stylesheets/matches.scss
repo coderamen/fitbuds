@@ -1,0 +1,359 @@
+// Place all the styles related to the matches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$grey-color: #818181;
+
+// show page
+
+.show-match-container {
+  width: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+hr.match-hr {
+  border-color: $grey-color;
+  margin: 0 0 10px 0;
+}
+
+.pending-info {
+  background-color: #f4f2f2;
+  padding: 20px;
+  margin-bottom: 60px;
+
+  h4 {
+    margin: 0;
+  }
+
+  .pending-attr {
+    width: 100px;
+  }
+
+  .pending-details {
+    width: 200px;
+  }
+
+}
+
+.match-other-row {
+  margin: 0 0 30px 0 !important;
+  display: flex;
+
+  .col-md-4 {
+    width: 40%;
+    height: 100%;
+    align-self: center;
+
+    .profile-pic {
+      background-color: #ddd;
+      border-radius: 50%;
+      border: solid 1px $grey-color;
+      margin: 0 auto;
+      width: 300px;
+      height: 300px;
+    }
+
+    img {
+     border-radius: 50%;
+     border: solid 1px $grey-color;
+     width: 300px;
+     height: 300px;
+    }
+  }
+
+  .col-md-8 {
+    background-color: #f4f2f2;
+    padding: 0;
+    // margin-right: 20px;
+    width: 60%;
+    // float: right;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+
+    .other-user-details {
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 40px;
+    }
+
+    h4 {
+      text-align: left;
+      margin-bottom: 10px;
+      color: $grey-color;
+    }
+
+    .user-attr-table {
+      width: 100%;
+
+      td {
+        padding-right: 15px;
+        font-weight: 700;
+      }
+
+      .attr-value {
+        padding-right: 80px;
+        font-weight: 400;
+      }
+
+    }
+    .other-pending-title {
+      color: #000;
+      margin: 20px 0 20px 0;
+    }
+
+    .other-pending-table {
+      width: 100%;
+
+      .pending-attr {
+        width: 70px;
+        font-weight: 700;
+      }
+
+      .pending-details {
+        width: 200px;
+      }
+    }
+  }
+}
+
+.chat-form-row {
+  margin-bottom: 30px;
+
+  .chat-col {
+    width: 55%;
+
+    h4 {
+      color: #f4f2f2;
+    }
+  }
+
+  .confirmed-activity-col {
+    float: right;
+
+    h4 {
+      color: #f4f2f2;
+    }
+
+    .panel {
+      height: auto;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .confirm-details {
+
+      td {
+        height: 50px;
+        padding: 10px;
+        vertical-align: top;
+      }
+
+      .confirm-attr {
+        width: 120px;
+
+        p {
+          font-weight: 700;
+        }
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .confirm-alert {
+      border-radius: 0;
+      border-color: #ccc;
+      margin-top: 20px;
+    }
+
+    .confirm-btn {
+      margin: 10px 0 0 10px;
+      background-color: #258f9f;
+      border: none;
+      border-radius: 0;
+      width: 140px;
+
+      &:hover {
+        background-color: #01b6d1;
+      }
+    }
+
+    .decline-link {
+      height: 44px;
+      margin-top: 20px;
+      border: none;
+      background: none;
+      color: #337ab7;
+      float: right;
+
+      &:hover {
+        color: #23527c;
+      }
+    }
+
+    .confirm-form {
+
+      td {
+        height: 50px;
+        padding: 10px;
+      }
+
+      select {
+        height: 31px;
+      }
+
+      #confirmed_activity_location {
+        width: 100%;
+      }
+
+      #confirmed_activity_date {
+        width: 40%;
+      }
+
+      #confirmed_activity_time {
+        width: 40%;
+      }
+
+      #confirmed_activity_duration_in_hours {
+        width: 40%;
+      }
+    }
+  }
+}
+
+.body-match {
+  position: absolute;
+  width: 100%;
+  height: 1500px;
+  background: #3b6b74;
+  // background: linear-gradient(-45deg, #4e7f88, #144249);
+}
+
+
+.dashbox-match {
+  position: absolute;
+  right: 1em;
+  // top: 5em;
+  margin-top:60px;
+  width: calc(100% - 250px);
+  float: right;
+}
+
+.item-stats {
+  display: inline-block;
+  padding: 0 12px;
+  text-align: center;
+  margin-left: 10px;
+  height: 20px;
+}
+
+.loaders {
+  position: relative;
+  bottom: 1.7em;
+  left: 1.8em;
+  color: #fff;
+  opacity: 0.8
+}
+.match-img  {
+  // border: 1px solid red;
+  float: right;
+  height: auto;
+
+    img {
+      width: auto;
+      height: auto;
+      margin-top: 20px;
+      margin-right: 25px;
+      border-radius: 100%;
+      border: 4px solid #a9cf54;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .50);
+    }
+}
+
+#match-user {
+  color: #258f9f;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.match-text {
+  font-size: 25px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+#match-sms {
+  position: relative;
+  bottom: 2.5em;
+  right: .6em;
+  -moz-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
+  font-size: 100px;
+  color: #258f9f;
+}
+
+.well {
+
+   table.index-matches {
+     width: 80%;
+     margin: 0 auto;
+
+     td {
+       height: 30px;
+     }
+
+     .match-user-name {
+       height: 60px;
+       text-align: center;
+       font-weight: 700;
+       font-size: 15px;
+     }
+
+     .match-attr {
+       font-weight: 700;
+       padding-left: 25px;
+     }
+
+     .match-details {
+       padding-left: 20px;
+     }
+   }
+ }
+
+.confirm-status-indi {
+  width: 100%;
+  
+  td {
+    width: 50%;
+    text-align: center;
+
+    &.confirm-indi {
+      padding-left: 30px;
+    }
+
+    &.unconfirm-indi {
+      padding-right: 30px;
+    }
+  }
+}
+
+.dashbox-match {
+  .col-sm-3 {
+    color: #000;
+
+     &:hover {
+      transition: 0.3s;
+      transform: scale(1.03);
+     }
+  }
+}

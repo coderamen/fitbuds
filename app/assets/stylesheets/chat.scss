@@ -1,0 +1,60 @@
+.chatbox {
+  background-color: #f4f2f2;
+  position: relative;
+  border: solid 1px #ccc;
+  width: 100%;
+  height: 410px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+
+  .chat {
+    list-style: none;
+    padding: 10px;
+    overflow: scroll;
+    height: 93%;
+
+    .other {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+
+      .msg {
+        background-color: #ddd;
+        float: left;
+        max-width: 60%;
+      }
+    }
+
+    .self {
+      width: 100%;
+      display: block;
+      overflow: hidden;
+
+      .msg {
+        background-color: #01b6d1;
+        color: #fff;
+        float: right;
+        max-width: 70%;
+      }
+    }
+
+    p {
+      margin: 7px;
+    }
+
+    .msg {
+      border-radius: 12px;
+      margin: 5px;
+    }
+  }
+
+  .reply-msg {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+
+    input.reply-input {
+      width: 84%;
+    }
+  }
+}

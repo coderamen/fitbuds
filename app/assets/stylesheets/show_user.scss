@@ -1,0 +1,29 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#main {
+  margin: 0;
+  padding: 0;
+}
+
+.user-details {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+#welcome-username {
+  margin-top: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: #525252;
+  font-weight: 300;
+}
+
+.attributes {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: #757575;
+}

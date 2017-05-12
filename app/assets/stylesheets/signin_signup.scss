@@ -1,0 +1,165 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  // background-color: #40414A;
+  // background-color: black;
+}
+
+.sidebar-logo {
+  margin-left: 9%;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.signin_bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 907px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-style: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 0;
+  background-image: url('football.jpg');
+  background-color: #40414A;
+}
+
+#signup-text {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  margin-bottom: 0px;
+  margin-top: 4%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.signup_bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 907px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-style: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 0;
+  background-image: url('basketball.jpeg');
+  background-color: #40414A;
+}
+
+#signup-box {
+    margin-top: 35px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    opacity: 0.9;
+}
+
+#signin-text {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  margin-bottom: 0px;
+  margin-top: 4%;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.9;
+}
+
+#logbox {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 35px;
+    // margin-bottom: 60px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    opacity: 0.9;
+}
+
+#logbox img{
+  margin-top: 10px;
+}
+
+#signin {
+  margin-top: 20px;
+}
+
+.input {
+
+    text-align: center;
+    width: 65%;
+    height: 50px;
+    display: block;
+    // margin: 0 auto 15px;
+    padding: 0 15px;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+}
+.input:focus {
+    outline: none;
+    border-bottom-color: #01b6d1 !important;
+}
+.input:hover {
+    border-bottom-color: #dcdcdc;
+}
+.input:invalid {
+    box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+    margin-top: 25px;
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.inputButton {
+  margin-top: 10px;
+  position: relative;
+  width: 85%;
+  height: 50px;
+  display: block;
+  margin: 55px auto 30px;
+  color: white;
+  background-color: #01b6d1;
+  border: none;
+  -webkit-box-shadow: 0 5px 0 #258f9f;
+  -moz-box-shadow: 0 5px 0 #258f9f;
+  box-shadow: 0 5px 0 #258f9f;
+}
+.inputButton:hover {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #258f9f;
+  -moz-box-shadow: 0 3px 0 #258f9f;
+  box-shadow: 0 3px 0 #258f9f;
+}
+.inputButton:active {
+  top: 5px;
+  box-shadow: none;
+}
+.inputButton:focus {
+  outline: none;
+}
