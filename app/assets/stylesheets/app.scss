@@ -155,7 +155,7 @@
 .logout-btn {
   border: 0;
   margin-top: 12px;
-  position: fixed; 
+  position: fixed;
   width: 230px;
   bottom: 10px;
 }
@@ -269,7 +269,7 @@
 }
 
 .db-landing {
-  background: url("bg4.jpg");
+  background: image-url("bg4.jpg");
   background-position: center;
   background-size: cover;
   position: relative;
@@ -319,13 +319,13 @@ a.match-link {
 
   &:hover {
     text-decoration: none;
-    
+
     .well {
       transition: 0.3s;
       transform: scale(1.03);
     }
   }
-  
+
   .well {
 
     table.dahsboard-matches {
@@ -348,7 +348,7 @@ a.match-link {
       }
 
       .match-details {
-        padding-left: 20px;      
+        padding-left: 20px;
       }
     }
   }

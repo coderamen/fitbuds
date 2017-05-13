@@ -17,7 +17,6 @@ class User < ApplicationRecord
       true
     end
 
-    byebug
     user = User.find_or_create_by(name: auth_hash[:info][:name], email: auth_hash[:info][:email])
 
     avatar_url = auth_hash[:info][:image].gsub("http://", "https://") + "?width=1000&height=1000"
