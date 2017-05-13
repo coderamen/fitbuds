@@ -20,8 +20,6 @@ gem 'figaro'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
-# Use Puma as the app server
-gem 'puma', '~> 3.0'
 # User Bootstrap select
 gem 'bootstrap-select-rails'
 # Use Material-icons
@@ -61,6 +59,11 @@ gem 'redis'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma', '~> 3.0'
 end
 
 group :development do
