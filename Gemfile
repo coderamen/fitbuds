@@ -25,7 +25,7 @@ gem 'bootstrap-select-rails'
 # Use Material-icons
 gem 'material_icons'
 # Use Bootstrap, Font-Awesome and SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'bootstrap-sass', '~> 3.4'
 gem 'sass-rails', '~> 5.0'
 gem "font-awesome-rails"
 # Use Uglifier as compressor for JavaScript assets
