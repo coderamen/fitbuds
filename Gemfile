@@ -63,7 +63,7 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'puma', '~> 3.0'
+  gem 'puma', '~> 4.3'
 end
 
 group :development do
