@@ -5,31 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-u1 = User.create(
+u1 = User.new(
   name: "Test Abcde",
   email: "test@abcde.com",
-  password: "password",
   city: "Petaling Jaya",
   state: "Selangor",
   country: "Malaysia",
   age_range: "19-29",
   stamina: 1,
   strength: 1,
-  agility: 1
+  agility: 1,
+  remember_token: SecureRandom.hex(32),
+  encrypted_password: "seed-password-disabled"
 )
+u1.save!(validate: false)
 
-u2 = User.create(
+u2 = User.new(
   name: "Test Qwerty",
   email: "test@qwerty.com",
-  password: "password",
   city: "Petaling Jaya",
   state: "Selangor",
   country: "Malaysia",
   age_range: "19-29",
   stamina: 1,
   strength: 1,
-  agility: 1
+  agility: 1,
+  remember_token: SecureRandom.hex(32),
+  encrypted_password: "seed-password-disabled"
 )
+u2.save!(validate: false)
 
 ["Badminton", "Chess", "Taichi", "Tennis", "Squash", "Table Tennis", "Lawnbowling"].each do |activity|
   Activity.create(name: activity)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310022519) do
+ActiveRecord::Schema.define(version: 20170310080642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(version: 20170310022519) do
     t.index ["user1_pending_id", "user2_pending_id"], name: "index_matches_on_user1_pending_id_and_user2_pending_id", unique: true, using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pendings", force: :cascade do |t|
     t.integer  "activity_id"
     t.integer  "user_id"
@@ -85,6 +93,7 @@ ActiveRecord::Schema.define(version: 20170310022519) do
     t.integer  "stamina"
     t.integer  "strength"
     t.integer  "agility"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end

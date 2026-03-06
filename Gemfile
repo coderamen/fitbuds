@@ -1,4 +1,4 @@
-﻿source 'https://rubygems.org'
+source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -50,6 +50,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Ruby 3.x compatibility: old locked nokogiri fails to compile on modern toolchains.
 gem 'nokogiri', '>= 1.13.10'
+# Ruby 3 no longer bundles WEBrick; keep legacy Rails fallback server available.
+gem 'webrick', '~> 1.8'
 # User management gem for password encryption
 gem 'clearance'
 # Use Redis adapter to run Action Cable in production

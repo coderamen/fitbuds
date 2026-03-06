@@ -18,3 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Bundler local artifacts
+vendor/bundle/
+.bundle_home/
