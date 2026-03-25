@@ -22,8 +22,8 @@ gem 'figaro'
 gem 'ffi', '~> 1.16.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+# Use SQLite for local development/test.
+gem 'sqlite3', '~> 1.3.6', group: [:development, :test]
 # User Bootstrap select
 gem 'bootstrap-select-rails'
 # Use Material-icons
@@ -70,6 +70,8 @@ group :development, :test do
 end
 
 group :production do
+  # Keep PostgreSQL in production.
+  gem 'pg', '~> 0.18'
   gem 'rails_12factor'
   gem 'puma', '~> 3.0'
 end

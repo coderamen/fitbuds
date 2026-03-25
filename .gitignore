@@ -22,3 +22,6 @@
 # Bundler local artifacts
 vendor/bundle/
 .bundle_home/
+
+# Local SQLite databases
+/db/*.sqlite3

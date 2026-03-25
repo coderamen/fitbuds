@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170310080642) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "activities", force: :cascade do |t|
     t.string "name"
   end
@@ -26,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170310080642) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_authentications_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
   create_table "confirmed_activities", force: :cascade do |t|
@@ -45,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170310080642) do
     t.integer "pending_viewer_id"
     t.integer "pending_viewed_id"
     t.integer "status"
-    t.index ["pending_viewer_id", "pending_viewed_id"], name: "index_match_statuses_on_pending_viewer_id_and_pending_viewed_id", unique: true, using: :btree
+    t.index ["pending_viewer_id", "pending_viewed_id"], name: "idx_match_statuses_pair", unique: true
   end
 
   create_table "matches", force: :cascade do |t|
@@ -55,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170310080642) do
     t.integer  "user2_pending_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["user1_pending_id", "user2_pending_id"], name: "index_matches_on_user1_pending_id_and_user2_pending_id", unique: true, using: :btree
+    t.index ["user1_pending_id", "user2_pending_id"], name: "idx_matches_pending_pair", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -94,9 +91,8 @@ ActiveRecord::Schema.define(version: 20170310080642) do
     t.integer  "strength"
     t.integer  "agility"
     t.string   "avatar"
-    t.index ["email"], name: "index_users_on_email", using: :btree
-    t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  add_foreign_key "authentications", "users"
 end
